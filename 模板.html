@@ -28,7 +28,7 @@
               <a href="javascript:;" @click="playMusic(item.id,item.name+'——'+item.artists[0].name)"></a> 
               <b>{{ item.name }}</b> 
               <span style="color: red; width: 5px; cursor: pointer;" @click.stop="addmusicList(item.id,item.name+'——'+item.artists[0].name)" v-text="inmusicList(item.id)"></span>
-              <span v-if="item.mvid!=0" @click="playMV(item.mvid)"><i></i></span>
+              <span v-if="item.mvid!=0" @click.stop="playMV(item.mvid)"><i></i></span>
             </li>
           </ul>
           <img src="images/line.png" class="switch_btn" alt="">
@@ -72,7 +72,7 @@
         <div class="next" :style="{ display:leftplay() }" @click="nextMusic"></div>
       </div>
       <div class="video_con" v-show="isShow" style="display: none;">
-        <video :src="mvUrl" controls="controls"></video>
+        <video ref="video" :src="mvUrl" controls="controls" autoplay></video>
         <div class="mask" @click="hide"></div>
       </div>
     </div>

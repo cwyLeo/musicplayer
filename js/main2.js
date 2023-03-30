@@ -36,6 +36,7 @@ const app = createApp({
             musicCover:"",
             hotComments:[],
             isPlaying:false,
+            videoPlaying:false,
             isShow:false,
             mvUrl:"",
             mymusicList:[],
@@ -94,6 +95,8 @@ const app = createApp({
                 this.musicCover = ""
                 this.isPlaying = false
                 this.hotComments = []
+                this.lyric = ""
+                this.lyriclist = []
             }
         },
         addmusicList:function(id,name){
@@ -207,14 +210,23 @@ const app = createApp({
         },
         playMV:function(id){
             var that = this
+            const video = that.$refs.video
+            const audio = that.$refs.audio
             axios.get("https://autumnfish.cn/mv/url?id="+id)
             .then(function(response){
                 that.isShow = true
+                that.videoPlaying = true
+                that.isPlaying = false
+                video.play()
+                audio.pause()
                 that.mvUrl = response.data.data.url
             },function(err){})
         },
         hide:function(){
+            const video = this.$refs.video
             this.isShow = false
+            this.videoPlaying = false
+            video.pause()
         },
     }
     
