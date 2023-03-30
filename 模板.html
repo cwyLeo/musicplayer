@@ -18,6 +18,7 @@
         <img src="images/player_title.png" alt="" />
         <!-- 搜索歌曲 -->
         <input type="text" autocomplete="off" v-model="query" @keyup.enter="searchMusic" />
+        <div class="search_button" @click="searchMusic"></div>
       </div>
       <div class="center_con">
         <!-- 搜索歌曲列表 -->
