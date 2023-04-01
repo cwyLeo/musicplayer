@@ -26,9 +26,10 @@
           <ul class="song_list">
             <li v-for="item in musicList" :style="{ backgroundColor:selectedcolor(item.id)}" @click="playMusic(item.id,item.name+'——'+item.artists[0].name)">
               <a href="javascript:;" @click="playMusic(item.id,item.name+'——'+item.artists[0].name)"></a> 
-              <b>{{ item.name }}</b> 
+              <b>{{ item.name }} {{ item.artists[0].name }}</b> 
               <span style="color: red; width: 5px; cursor: pointer;" @click.stop="addmusicList(item.id,item.name+'——'+item.artists[0].name)" v-text="inmusicList(item.id)"></span>
               <span v-if="item.mvid!=0" @click.stop="playMV(item.mvid)"><i></i></span>
+              <!-- <div class="name_float">{{ item.name }} {{ item.artists[0].name }}</div> -->
             </li>
           </ul>
           <img src="images/line.png" class="switch_btn" alt="">

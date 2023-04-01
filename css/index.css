@@ -504,3 +504,13 @@ dd {
   top: 50%;
   z-index: 995;
 }
+/* .name_float{
+  display: none;
+  position: absloute;
+  top: 0;
+  left: 0;
+}
+.name_float:hover{
+  display: block;
+} */
+
